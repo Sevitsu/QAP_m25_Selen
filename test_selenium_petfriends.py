@@ -115,7 +115,7 @@ def test_check_duplicated_pets_my_pets(test_login):
     names_count_text = []
     breeds_count_text = []
     ages_count_text = []
-    n = 0
+    n = 1
     for i in range(len(names_count)):
         names_count_text.append(list(names_count)[i].text)
         breeds_count_text.append(list(breeds_count)[i].text)
@@ -125,5 +125,6 @@ def test_check_duplicated_pets_my_pets(test_login):
             if names_count_text[i] == names_count_text[j] and breeds_count_text[i] == breeds_count_text[j] \
                     and ages_count_text[i] == ages_count_text[j]:
                 n += 1
+                break
 
-    assert n == 0, f'Duplicated pets qty {n}'
+    assert n == 1, f'Duplicated pets qty {n}'
