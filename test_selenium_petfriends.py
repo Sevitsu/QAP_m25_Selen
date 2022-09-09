@@ -17,11 +17,11 @@ def test_petfriends_login(web_browser):
     time.sleep(0)
     web_browser.implicitly_wait(10)
     # Find the field for search text input:
-    # WebDriverWait(web_browser, 10).until(EC.presence_of_element_located((By.LINK_TEXT, "Зарегистрироваться")))
+    WebDriverWait(web_browser, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "button.btn.btn-success")))
     btn_new_user = web_browser.find_element_by_xpath("//button[@onclick=\"document.location=\'/new_user';\"]")
     btn_new_user.click()
 
-    # WebDriverWait(web_browser, 10).until(EC.presence_of_element_located((By.LINK_TEXT, "У меня уже есть аккаунт")))
+    WebDriverWait(web_browser, 10).until(EC.presence_of_element_located((By.LINK_TEXT, "У меня уже есть аккаунт")))
     btn_exist_acc = web_browser.find_element_by_link_text(u"У меня уже есть аккаунт")
     btn_exist_acc.click()
 
